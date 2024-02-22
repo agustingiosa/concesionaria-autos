@@ -12,6 +12,22 @@
 </head>
 
 <body>
+    <div class="list-group-item filtradoPC">
+        <h2>Filtrar</h2>
+        <form class="filter-form">
+            <label for="marca">Marca:</label>
+            <select class="marca-select">
+                <option value="todos">Todos</option>
+                <!-- Agrega más opciones de marca según tus necesidades -->
+            </select>
+
+            <label for="modelo">Modelo:</label>
+            <select class="modelo-select">
+                <option value="todos">Todos</option>
+                <!-- Opciones de modelo se cargarán dinámicamente con JavaScript -->
+            </select>
+        </form>
+    </div>
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -24,7 +40,7 @@
                 </button>
                 <a class="navbar-brand" href="../index.html"><img class="logo"
                         src="../objetos/logo webtec con bordes.webp" alt=""></a>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="collapse navbar-collapse navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link" aria-current="page" href="../index.html">Inicio</a>
                         <a class="nav-link naranja" href="./servicios.html">Vehiculos</a>
@@ -37,29 +53,30 @@
     </header>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarSide" aria-labelledby="navbarSideLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="navbarSideLabel">Liftcar</h5>
+            <h5 class="offcanvas-title navbarSideLabel">Liftcar</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
             <div class="list-group">
                 <a href="../index.html" class="list-group-item">Inicio</a>
                 <a href="./vehiculos.html" class="list-group-item naranja">Vehiculos</a>
-                <div class="list-group-item">
+                <div class="list-group-item filtrado">
                     <h2>Filtrar</h2>
-                    <form id="filterForm">
+                    <form class="filter-form">
                         <label for="marca">Marca:</label>
-                        <select id="marca">
+                        <select class="marca-select">
                             <option value="todos">Todos</option>
                             <!-- Agrega más opciones de marca según tus necesidades -->
                         </select>
 
                         <label for="modelo">Modelo:</label>
-                        <select id="modelo">
+                        <select class="modelo-select">
                             <option value="todos">Todos</option>
                             <!-- Opciones de modelo se cargarán dinámicamente con JavaScript -->
                         </select>
                     </form>
                 </div>
+
                 <a href="#" class="list-group-item">Nosotros</a>
                 <a href="./contacto.html" class="list-group-item">Contacto</a>
             </div>
@@ -68,7 +85,10 @@
 
 
 
-    <main id="carList">
+
+
+
+    <main class="carList">
 
     </main>
 

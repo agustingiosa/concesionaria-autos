@@ -409,18 +409,43 @@ header a {
 
 .no-results-message {
     margin-top: 2rem;
+    color: #000;
 }
 
-#carList {
+.carList {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.filtradoPC {
+    background-color: #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    height: 9rem;
+    padding: 0.5rem;
+    margin-top: 4rem;
+}
+
+
+@media (max-width: 1920px){
+    .filtrado{
+        display: none;
+    }
+}
 
 @media (max-width: 900px) {
     .navbar-brand {
         display: none;
+    }
+    .filtradoPC{
+        visibility: hidden;
+    }
+    .filtrado{
+        display: flex;
     }
 }

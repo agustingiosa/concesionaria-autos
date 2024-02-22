@@ -1,15 +1,19 @@
+// JavaScript para el primer conjunto de filtros
 document.addEventListener('DOMContentLoaded', function () {
-    const marcas = ['Toyota', 'Honda', 'Ford', 'BMW']; // Lista de marcas
+    const marcas = ['Audi', 'BMW', 'Chevrolet', 'Dodge', 'Ford', 'Honda', 'Toyota']; // Lista de marcas
     const modelosPorMarca = {
-        'Toyota': ['Corolla', 'Camry', 'RAV4', '86', 'Hylux', 'SW4'],
-        'Honda': ['Civic', 'Accord', 'CR-V', 'HR-V'],
-        'Ford': ['Focus', 'Fiesta', 'Mustang', 'Mondeo', 'F150', 'Ranger'],
-        'BMW': ['320i', '118i']
+        'Audi': ['A1'],
+        'BMW': ['118i', '320i'],
+        'Chevrolet': ['Camaro', 'Cruze', 'S10'],
+        'Dodge': ['Ram 1500'],
+        'Ford': ['F150', 'Fiesta', 'Focus', 'Mondeo', 'Mustang', 'Ranger'],
+        'Honda': ['Accord', 'Civic', 'CR-V', 'HR-V'],
+        'Toyota': ['86', 'Corolla', 'Camry', 'Hilux', 'RAV4', 'SW4'],
         // Puedes agregar más modelos según la marca
     };
 
-    const marcaSelect = document.getElementById('marca');
-    const modeloSelect = document.getElementById('modelo');
+    const marcaSelect = document.querySelector('.marca-select'); // Modificado
+    const modeloSelect = document.querySelector('.modelo-select'); // Modificado
 
     // Llenar opciones de marca
     marcas.forEach(marca => {
@@ -35,18 +39,21 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        // Filtrar autos al cambiar la marca
+        // Filtrar autos al cambiar la marca y el modelo
         filtrarAutos();
     });
 
     // Filtrar autos al cambiar el modelo
-    modeloSelect.addEventListener('change', filtrarAutos);
+    modeloSelect.addEventListener('change', function () {
+        // Filtrar autos al cambiar el modelo
+        filtrarAutos();
+    });
 
     // Función para filtrar autos según marca y modelo seleccionados
     function filtrarAutos() {
         const selectedMarca = marcaSelect.value;
         const selectedModelo = modeloSelect.value;
-        const carList = document.getElementById('carList');
+        const carList = document.querySelector('.carList');
         const autos = obtenerAutosFiltrados(selectedMarca, selectedModelo); // Implementa esta función según tus datos
 
         // Mostrar autos filtrados en la página
@@ -54,19 +61,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (autos.length === 0) {
             const noResultsMessage = document.createElement('div');
-            noResultsMessage.textContent = 'No se encontraron resultados.';
+            noResultsMessage.textContent = 'En estos momentos no contamos con este modelo en stock';
             noResultsMessage.classList.add('no-results-message');
             carList.appendChild(noResultsMessage);
         } else {
             autos.forEach(auto => {
                 const carCard = document.createElement('div');
                 carCard.classList.add('car-card');
-            
+
                 const carImage = document.createElement('img');
                 carImage.classList.add('car-image');
                 carImage.src = auto.imagen; // Ajusta la ruta de la imagen según tus datos
                 carImage.alt = `${auto.marca} ${auto.modelo}`;
-            
+
                 const carDetails = document.createElement('div');
                 carDetails.classList.add('car-details');
                 carDetails.innerHTML = `
@@ -74,27 +81,24 @@ document.addEventListener('DOMContentLoaded', function () {
                     <span>Año: ${auto.año}</span><br>
                     <span>Kilometros: ${auto.kilometros}</span><br>
                 `;
-            
+
                 const carPrice = document.createElement('div');
                 carPrice.classList.add('car-price');
                 carPrice.textContent = `${auto.precio}`;
-            
+
                 // Agregar elementos a la tarjeta de automóvil
                 carCard.appendChild(carImage);
-            
+
                 const detailsAndPriceContainer = document.createElement('div');
                 detailsAndPriceContainer.classList.add('details-and-price-container');
                 detailsAndPriceContainer.appendChild(carDetails);
                 detailsAndPriceContainer.appendChild(carPrice);
-            
+
                 carCard.appendChild(detailsAndPriceContainer);
-            
+
                 // Agregar la tarjeta de automóvil al contenedor principal
                 carList.appendChild(carCard);
             });
-            
-            
-            
         }
     }
 
@@ -103,13 +107,15 @@ document.addEventListener('DOMContentLoaded', function () {
         // Lógica para filtrar autos según la marca y el modelo seleccionados
         // Ejemplo de datos de autos (puedes ajustar según tus datos)
         const autos = [
-            { marca: 'Toyota', modelo: 'Corolla', año: 2022, precio: '$25.000', imagen: 'toyota-corolla.jpg' },
-            { marca: 'BMW', modelo: '320i', año: 2014, kilometros:'40.000', precio: 'us$25.000', imagen: '../image/liftcar.png' },
-            { marca: 'Toyota', modelo: 'Camry', año: 2021, precio: '$30.000', imagen: 'toyota-camry.jpg' },
+            { marca: 'Audi', modelo: 'A1', año: 2022, kilometros: '3.000', precio: 'us$32.000', imagen: '../image/audi a1.png' },
+            { marca: 'BMW', modelo: '320i', año: 2014, kilometros: '40.000', precio: 'us$25.000', imagen: '../image/liftcar.png' },
+            { marca: 'Dodge', modelo: 'Ram 1500', año: 2015, kilometros: '70.000', precio: 'us$29.000', imagen: '../image/ram.png' },
+            { marca: 'Ford', modelo: 'Fiesta', año: 2021, precio: '$18.000', imagen: 'ford-fiesta.jpg' },
+            { marca: 'Ford', modelo: 'Focus', año: 2022, precio: '$20.000', imagen: 'ford-focus.jpg' },
             { marca: 'Honda', modelo: 'Civic', año: 2020, precio: '$22.000', imagen: 'honda-civic.jpg' },
             { marca: 'Honda', modelo: 'CR-V', año: 2023, precio: '$35.000', imagen: 'honda-crv.jpg' },
-            { marca: 'Ford', modelo: 'Focus', año: 2022, precio: '$20.000', imagen: 'ford-focus.jpg' },
-            { marca: 'Ford', modelo: 'Fiesta', año: 2021, precio: '$18.000', imagen: 'ford-fiesta.jpg' }
+            { marca: 'Toyota', modelo: 'Corolla', año: 2022, precio: '$25.000', imagen: 'toyota-corolla.jpg' },
+            { marca: 'Toyota', modelo: 'Camry', año: 2021, precio: '$30.000', imagen: 'toyota-camry.jpg' },
         ];
 
         if (marca === 'todos' && modelo === 'todos') {
@@ -125,4 +131,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Mostrar todos los autos al cargar la página
     filtrarAutos();
+});
+
+// JavaScript para el segundo conjunto de filtros
+document.addEventListener('DOMContentLoaded', function () {
+    // Aquí coloca el código JavaScript para el segundo conjunto de filtros
 });
