@@ -109,13 +109,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const autos = [
             { marca: 'Audi', modelo: 'A1', año: 2022, kilometros: '3.000', precio: 'us$32.000', imagen: '../image/audi a1.png' },
             { marca: 'BMW', modelo: '320i', año: 2014, kilometros: '40.000', precio: 'us$25.000', imagen: '../image/liftcar.png' },
+            { marca: 'Chevrolet', modelo: 'Camaro', año: 2022, kilometros: '1.000', precio: 'us$94.000', imagen: '../image/camaro.png' },
             { marca: 'Dodge', modelo: 'Ram 1500', año: 2015, kilometros: '70.000', precio: 'us$29.000', imagen: '../image/ram.png' },
-            { marca: 'Ford', modelo: 'Fiesta', año: 2021, precio: '$18.000', imagen: 'ford-fiesta.jpg' },
-            { marca: 'Ford', modelo: 'Focus', año: 2022, precio: '$20.000', imagen: 'ford-focus.jpg' },
-            { marca: 'Honda', modelo: 'Civic', año: 2020, precio: '$22.000', imagen: 'honda-civic.jpg' },
-            { marca: 'Honda', modelo: 'CR-V', año: 2023, precio: '$35.000', imagen: 'honda-crv.jpg' },
-            { marca: 'Toyota', modelo: 'Corolla', año: 2022, precio: '$25.000', imagen: 'toyota-corolla.jpg' },
-            { marca: 'Toyota', modelo: 'Camry', año: 2021, precio: '$30.000', imagen: 'toyota-camry.jpg' },
         ];
 
         if (marca === 'todos' && modelo === 'todos') {

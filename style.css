@@ -7,6 +7,15 @@ body {
     font-size: 12px;
 }
 
+p {
+    font-size: 1.2rem;
+    text-shadow: 2px 3px 4px rgba(0.2, 0.2, 0.2, 0.4);
+}
+
+.negro {
+    color: black;
+}
+
 a {
     text-decoration: none;
 }
@@ -28,8 +37,9 @@ header a {
 .carousel {
     height: 100vh;
     margin-top: -50px;
-    width: 100vw;
+
     overflow: hidden;
+    /* Agrega esta línea */
     position: relative;
 }
 
@@ -49,14 +59,17 @@ header a {
 .carousel .list .item .content {
     position: absolute;
     top: 20%;
-    width: 1140px;
-    max-width: 80%;
+    width: 80%;
+    /* Cambia el ancho máximo a un valor fijo o utiliza porcentajes */
+    max-width: 1140px;
+    /* Puedes eliminar esto si quieres un ancho adaptable */
     left: 50%;
     transform: translateX(-50%);
-    padding-right: 30%;
+    padding-right: 30px;
+    /* Cambia a un valor fijo */
     box-sizing: border-box;
     color: #fff;
-    text-shadow: 0 5px 10px #0004;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
 }
 
 .carousel .list .item .author {
@@ -103,6 +116,7 @@ header a {
     bottom: 50px;
     left: 50%;
     width: max-content;
+    overflow: hidden;
     z-index: 2;
     display: flex;
     gap: 20px;
@@ -212,7 +226,7 @@ header a {
 
 /* create animation when next click */
 .carousel.next .list .item:nth-child(1) img {
-    width: 150px;
+    width: 100%;
     height: 220px;
     position: absolute;
     bottom: 50px;
@@ -329,7 +343,7 @@ header a {
 
 .naranja {
     color: #f1683a !important;
-    
+
 }
 
 .blanco {
@@ -422,30 +436,240 @@ header a {
 .filtradoPC {
     background-color: #333333;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     position: fixed;
-    height: 9rem;
+    height: 100%;
+    width: 16rem;
     padding: 0.5rem;
     margin-top: 4rem;
 }
 
-
-@media (max-width: 1920px){
-    .filtrado{
-        display: none;
-    }
+.espacio {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
+
+.datos {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 5rem;
+    width: 100%;
+}
+
+.contenedorTitulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo {
+    color: #f1683a;
+    margin-top: 4rem;
+    text-shadow: 1px 1px 2px rgba(0.2, 0.2, 0.2, 0.4);
+}
+
+.fondoGris {
+    background-color: #333333;
+}
+
+.destacados {
+    position: relative;
+    display: inline-block;
+    /* Para asegurar que los elementos se apilen correctamente */
+    width: 20rem;
+}
+
+.imagenChica {
+    display: block;
+    width: 100%;
+    /* Ajusta el ancho según tus necesidades */
+    height: auto;
+    /* Ajusta la altura automáticamente */
+    border-radius: 1rem 1rem 1rem 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.destacados1-2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    /* Asegura que este div esté encima de la imagen */
+    text-align: center;
+    /* Centra el contenido horizontalmente */
+    color: white;
+    /* Ajusta el color del texto según tu diseño */
+}
+
+.destacados1-2 h3 {
+    margin: 0;
+    /* Elimina el margen predeterminado */
+}
+
+.destacados1-2 button {
+    background-color: orange;
+    /* Cambia el color del botón según tu diseño */
+    color: white;
+    /* Cambia el color del texto del botón según tu diseño */
+    border: none;
+    /* Elimina el borde del botón */
+    padding: 10px 20px;
+    /* Ajusta el padding según tu diseño */
+    cursor: pointer;
+    /* Cambia el cursor al pasar sobre el botón */
+}
+
+.centrado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.row {
+    padding: 0;
+    margin: 0;
+}
+
+.sectionDestacados {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contenedorDestacados {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.caja {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+.boton {
+    background-color: orange;
+    /* Cambia el color del botón según tu diseño */
+    color: white;
+    /* Cambia el color del texto del botón según tu diseño */
+    border: none;
+    /* Elimina el borde del botón */
+    padding: 10px 20px;
+    /* Ajusta el padding según tu diseño */
+    cursor: pointer;
+    /* Cambia el cursor al pasar sobre el botón */
+
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type="submit"] {
+    background-color: #f1683a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+input[type="submit"]:hover {
+    background-color: #d35400;
+}
+
+.boxBuscando {
+    padding-top: 2rem;
+}
+
+.footer {
+    background-color: #333333;
+    margin-bottom: -20px;
+    border-bottom: #f1683a 1rem solid ;
+}
+
+
+.social {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.social a {
+    font-size: 20px;
+    display: inline-block;
+    border: 1px solid beige;
+    color: #f1683a;
+    width: 50px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.social a:hover {
+    background-color: antiquewhite;
+}
+
+.footer ul {
+    list-style: none;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.footer ul li {
+    display: inline-block;
+    padding: 0px 15px;
+}
+
+.footer ul li a {
+    text-decoration: none;
+    color: whitesmoke;
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+.footer ul li a:hover {
+    color: #f1683a;
+}
+
+
+.copy-right {
+    text-align: center;
+    padding-bottom: 30px;
+    color: whitesmoke;
+}
+
+@media (max-width: 1920px) {}
 
 @media (max-width: 900px) {
     .navbar-brand {
         display: none;
     }
-    .filtradoPC{
-        visibility: hidden;
-    }
-    .filtrado{
-        display: flex;
-    }
+
 }
