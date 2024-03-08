@@ -386,10 +386,6 @@ header a {
     background-color: #f1683a
 }
 
-.navbar-toggler-icon {
-    background-color: ;
-}
-
 
 .navbar-toggler:focus {
     box-shadow: 0 0 0 0rem;
@@ -429,6 +425,10 @@ header a {
     background-color: #333333;
 }
 
+.car-card:hover{
+    background-color: rgb(66, 64, 64);
+}
+
 .car-price {
     color: #f1683a;
     font-size: 2rem;
@@ -464,7 +464,9 @@ header a {
     width: 16rem;
     padding: 0.5rem;
     margin-top: 4rem;
-    transition: left 0.3s ease; /* Agrega una transición para suavizar el desplazamiento */
+    top: -0.5rem;
+        border-right: 0.2rem solid #f1683a;
+        box-shadow: 0 2px 6px rgba(0.1, 0.1, 0.1, 1);
 }
 
 
@@ -692,6 +694,67 @@ input[type="submit"]:hover {
     color: whitesmoke;
 }
 
+.ver-mas-button {
+    height: 100%;
+}
+
+/*car-detail.html*/
+
+.car-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 4rem;
+}
+
+.car-detail-image {
+    width: 40rem;
+    border-left: 0.2rem solid #f1683a;
+    border-top: 0.2rem solid #f1683a;
+}
+
+.car-datos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20rem;
+    background-color: #333333;
+    height: 22.55rem;
+    border-top: 0.2rem solid #f1683a;
+    border-left: 0.2rem solid #f1683a;
+    border-right: 0.2rem solid #f1683a;
+}
+
+.car-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.detalles-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.car-description-container {
+    background-color: #333333;
+    margin-bottom: 2rem;
+    width: 60rem;
+    height: 50rem;
+    display: flex;
+    text-align: center;
+    padding-top: 2rem;
+    border: 0.2rem solid #f1683a;
+}
+
 @media (max-width: 1326px) {
     .imagenChica {
         width: 15rem;
@@ -719,9 +782,7 @@ input[type="submit"]:hover {
     }
     .filtradoPC {
         display: none; /* Muestra el formulario y los datos cuando la pantalla tiene al menos 1100px de ancho */
-        top: -0.5rem;
-        border-right: 0.2rem solid #f1683a;
-        box-shadow: 0 2px 6px rgba(0.1, 0.1, 0.1, 1);
+        
     }
 
     #showFormBtn {

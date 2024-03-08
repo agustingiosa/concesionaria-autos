@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Auto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html"><img class="logo"
+                        src="../objetos/logo webtec con bordes.webp" alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link " aria-current="page" href="../index.html">Inicio</a>
+                        <a class="nav-link " href="">Vehiculos</a>
+                        <a class="nav-link " href="#">Nosotros</a>
+                        <a class="nav-link " href="./contacto.html">Contacto</a>
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <div class="detalles-box">
+        <div class="car-details-container">
+
+        </div>
+        <div class="car-description-container">
+            
+        </div>
+    </div>
+
+
+    <footer>
+        <section class="footer">
+
+            <div class="social">
+
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+
+                <a href=""><i class="fa-brands fa-square-twitter"></i></a>
+
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+
+            </div>
+
+
+            <ul>
+
+                <li>
+                    <a href="">Home</a>
+                </li>
+
+                <li>
+                    <a href="">Blog</a>
+                </li>
+
+                <li>
+                    <a href="">About Us</a>
+                </li>
+
+                <li>
+                    <a href="">Contact</a>
+                </li>
+
+
+            </ul>
+
+
+            <p class="copy-right">Copyright @2030 all right reserved by Webtechknowledge</p>
+
+
+        </section>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Obtener los datos del auto de la URL
+            const params = new URLSearchParams(window.location.search);
+            const marca = params.get('marca');
+            const modelo = params.get('modelo');
+            const año = params.get('año');
+            const kilometros = params.get('kilometros');
+            const precio = params.get('precio');
+            const imagen = params.get('imagen');
+            const descripcion = params.get('descripcion');
+            const fotos = params.getAll('fotos'); // Obtener todas las fotos de la URL
+
+            // Mostrar los detalles del auto en la página
+            mostrarInformacionBasica(marca, modelo, año, kilometros, precio, imagen, descripcion, fotos);
+            mostrarDescripcion(descripcion);
+        });
+
+        function mostrarInformacionBasica(marca, modelo, año, kilometros, precio, imagen, descripcion, fotos) {
+            // Crear elementos HTML para mostrar la información básica del auto
+            const carDetailsContainer = document.querySelector('.car-details-container');
+            const carImage = document.createElement('img');
+            carImage.classList.add('car-detail-image');
+            carImage.src = imagen;
+            carImage.alt = `${marca} ${modelo}`;
+
+            const carDetails = document.createElement('div');
+            carDetails.innerHTML = `
+            <div class="car-datos">
+                <h2 class="naranja">${marca} ${modelo}</h2>
+                <p class="">Año: ${año}</p>
+                <p class="">Kilometros: ${kilometros}</p>
+                <p class="naranja">Precio: ${precio}</p>
+                
+            </div>
+`;
+
+            // Agregar elementos al contenedor de detalles del auto
+            carDetailsContainer.appendChild(carImage);
+            carDetailsContainer.appendChild(carDetails);
+        }
+
+        function mostrarDescripcion(descripcion, imagen, imagen2, imagen3, imagen4) {
+            // Mostrar la descripción del auto
+            const carDetailsContainer = document.querySelector('.car-description-container');
+            const descripcionContainer = document.createElement('div');
+            descripcionContainer.innerHTML = `
+            <div class="car-descripcion">
+                <p class="">Descripción: ${descripcion}</p>
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="${imagen}" class="d-block w-100" >
+                </div>
+                <div class="carousel-item">
+                    <img src="${imagen2}" class="d-block w-100" >
+                </div>
+                <div class="carousel-item">
+                    <img src="${imagen3}" class="d-block w-100" >
+                </div>
+                <div class="carousel-item">
+                    <img src="${imagen4}" class="d-block w-100" >
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+            </div>
+`;
+
+            // Agregar elementos al contenedor de detalles del auto
+            carDetailsContainer.appendChild(descripcionContainer);
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

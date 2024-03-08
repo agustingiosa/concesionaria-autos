@@ -1,4 +1,3 @@
-// JavaScript para el primer conjunto de filtros
 document.addEventListener('DOMContentLoaded', function () {
     const marcas = ['Audi', 'BMW', 'Chevrolet', 'Dodge', 'Ford', 'Honda', 'Toyota']; // Lista de marcas
     const modelosPorMarca = {
@@ -65,22 +64,23 @@ document.addEventListener('DOMContentLoaded', function () {
             noResultsMessage.classList.add('no-results-message');
             carList.appendChild(noResultsMessage);
         } else {
+            // ...
             autos.forEach(auto => {
                 const carCard = document.createElement('div');
                 carCard.classList.add('car-card');
 
                 const carImage = document.createElement('img');
                 carImage.classList.add('car-image');
-                carImage.src = auto.imagen; // Ajusta la ruta de la imagen según tus datos
+                carImage.src = auto.imagen;
                 carImage.alt = `${auto.marca} ${auto.modelo}`;
 
                 const carDetails = document.createElement('div');
                 carDetails.classList.add('car-details');
                 carDetails.innerHTML = `
-                    <strong>${auto.marca} ${auto.modelo}</strong><br>
-                    <span>Año: ${auto.año}</span><br>
-                    <span>Kilometros: ${auto.kilometros}</span><br>
-                `;
+        <strong>${auto.marca} ${auto.modelo}</strong><br>
+        <span>Año: ${auto.año}</span><br>
+        <span>Kilometros: ${auto.kilometros}</span><br>
+    `;
 
                 const carPrice = document.createElement('div');
                 carPrice.classList.add('car-price');
@@ -96,9 +96,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 carCard.appendChild(detailsAndPriceContainer);
 
+                // Agregar un evento de clic a la tarjeta de automóvil para redirigir al usuario a la página de detalles del auto
+                carCard.addEventListener('click', function () {
+                    // Construir la URL con los datos del auto
+                    const url = `car-detail.html?marca=${auto.marca}&modelo=${auto.modelo}&año=${auto.año}&kilometros=${auto.kilometros}&precio=${auto.precio}&imagen=${auto.imagen}&descripcion=${auto.descripcion}&imagen2=${auto.imagen2}&imagen3=${auto.imagen3}&imagen4=${auto.imagen4}`;
+                    window.location.href = url;
+                });
+
                 // Agregar la tarjeta de automóvil al contenedor principal
                 carList.appendChild(carCard);
             });
+            // ...
+
         }
     }
 
@@ -107,10 +116,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // Lógica para filtrar autos según la marca y el modelo seleccionados
         // Ejemplo de datos de autos (puedes ajustar según tus datos)
         const autos = [
-            { marca: 'Audi', modelo: 'A1', año: 2022, kilometros: '3.000', precio: 'us$32.000', imagen: '../image/audi a1.png' },
-            { marca: 'BMW', modelo: '320i', año: 2014, kilometros: '40.000', precio: 'us$25.000', imagen: '../image/liftcar.png' },
-            { marca: 'Chevrolet', modelo: 'Camaro', año: 2022, kilometros: '1.000', precio: 'us$94.000', imagen: '../image/camaro.png' },
-            { marca: 'Dodge', modelo: 'Ram 1500', año: 2015, kilometros: '70.000', precio: 'us$29.000', imagen: '../image/ram.png' },
+            { marca: 'Audi', modelo: 'A1', año: 2022, kilometros: '3.000', precio: 'us$32.000', imagen: '../image/audi_a1.png', descripcion: '2222222' },
+            { marca: 'BMW', modelo: '320i', año: 2014, kilometros: '40.000', precio: 'us$25.000', imagen: '../image/liftcar.png', descripcion: '2222222' },
+            { marca: 'Chevrolet', modelo: 'Camaro', año: 2022, kilometros: '1.000', precio: 'us$94.000', imagen: '../image/camaro.png', descripcion: 'Vehiculo con motor v8 transmision automatica de 8 velocidades, nafta, cubiertas nuevas,', imagen2: '../image/camaro.png', imagen3: '../image/camaro.png', imagen4: '../image/camaro.png' },
+            { marca: 'Dodge', modelo: 'Ram 1500', año: 2015, kilometros: '70.000', precio: 'us$29.000', imagen: '../image/ram.png', descripcion: '2222222' },
         ];
 
         if (marca === 'todos' && modelo === 'todos') {
@@ -128,7 +137,3 @@ document.addEventListener('DOMContentLoaded', function () {
     filtrarAutos();
 });
 
-// JavaScript para el segundo conjunto de filtros
-document.addEventListener('DOMContentLoaded', function () {
-    // Aquí coloca el código JavaScript para el segundo conjunto de filtros
-});
