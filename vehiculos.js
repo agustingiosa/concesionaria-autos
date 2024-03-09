@@ -111,14 +111,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Función de ejemplo para obtener autos filtrados (puedes reemplazarla con tu lógica)
+    // Función de ejemplo para obtener autos filtrados (puede<s reemplazarla con tu lógica)
     function obtenerAutosFiltrados(marca, modelo) {
         // Lógica para filtrar autos según la marca y el modelo seleccionados
         // Ejemplo de datos de autos (puedes ajustar según tus datos)
         const autos = [
             { marca: 'Audi', modelo: 'A1', año: 2022, kilometros: '3.000', precio: 'us$32.000', imagen: '../image/audi_a1.png', descripcion: '2222222' },
             { marca: 'BMW', modelo: '320i', año: 2014, kilometros: '40.000', precio: 'us$25.000', imagen: '../image/liftcar.png', descripcion: '2222222' },
-            { marca: 'Chevrolet', modelo: 'Camaro', año: 2022, kilometros: '1.000', precio: 'us$94.000', imagen: '../image/camaro.png', descripcion: 'Vehiculo con motor v8 transmision automatica de 8 velocidades, nafta, cubiertas nuevas,', imagen2: '../image/camaro.png', imagen3: '../image/camaro.png', imagen4: '../image/camaro.png' },
+            { marca: 'Chevrolet', modelo: 'Camaro', año: 2022, kilometros: '1.000', precio: 'us$94.000', imagen: '../image/camaro.png', descripcion: 'Vehiculo con motor v8 transmision automatica de 8 velocidades, nafta, cubiertas nuevas,', imagen2: '../image/camaro.png', imagen3: '../image/ram.png', imagen4: '../image/camaro.png' },
             { marca: 'Dodge', modelo: 'Ram 1500', año: 2015, kilometros: '70.000', precio: 'us$29.000', imagen: '../image/ram.png', descripcion: '2222222' },
         ];
 

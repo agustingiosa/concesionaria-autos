@@ -101,14 +101,16 @@
             const precio = params.get('precio');
             const imagen = params.get('imagen');
             const descripcion = params.get('descripcion');
-            const fotos = params.getAll('fotos'); // Obtener todas las fotos de la URL
+            const imagen2 = params.get('imagen2');
+            const imagen3 = params.get('imagen3');
+            const imagen4 = params.get('imagen4');
 
             // Mostrar los detalles del auto en la página
-            mostrarInformacionBasica(marca, modelo, año, kilometros, precio, imagen, descripcion, fotos);
-            mostrarDescripcion(descripcion);
+            mostrarInformacionBasica(marca, modelo, año, kilometros, precio, imagen, descripcion, imagen2, imagen3, imagen4);
+            mostrarDescripcion(descripcion, imagen, imagen2, imagen3, imagen4);
         });
 
-        function mostrarInformacionBasica(marca, modelo, año, kilometros, precio, imagen, descripcion, fotos) {
+        function mostrarInformacionBasica(marca, modelo, año, kilometros, precio, imagen, descripcion, imagen2, imagen3, imagen4) {
             // Crear elementos HTML para mostrar la información básica del auto
             const carDetailsContainer = document.querySelector('.car-details-container');
             const carImage = document.createElement('img');
@@ -138,33 +140,33 @@
             const descripcionContainer = document.createElement('div');
             descripcionContainer.innerHTML = `
             <div class="car-descripcion">
-                <p class="">Descripción: ${descripcion}</p>
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="${imagen}" class="d-block w-100" >
-                </div>
-                <div class="carousel-item">
-                    <img src="${imagen2}" class="d-block w-100" >
-                </div>
-                <div class="carousel-item">
-                    <img src="${imagen3}" class="d-block w-100" >
-                </div>
-                <div class="carousel-item">
-                    <img src="${imagen4}" class="d-block w-100" >
+                <p class="descripcionAutos">Descripción: ${descripcion}</p>
+                <div id="carouselExampleControls" class="carousel carousel2 slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="imagenCarousel" src="${imagen}" class="d-block w-100" alt="Imagen 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="imagenCarousel" src="${imagen2}" class="d-block w-100" alt="Imagen 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="imagenCarousel" src="${imagen3}" class="d-block w-100" alt="Imagen 3">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="imagenCarousel" src="${imagen4}" class="d-block w-100" alt="Imagen 4">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-            </div>
-`;
+        `;
 
             // Agregar elementos al contenedor de detalles del auto
             carDetailsContainer.appendChild(descripcionContainer);
