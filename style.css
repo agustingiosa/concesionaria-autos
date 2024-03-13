@@ -774,6 +774,24 @@ input[type="submit"]:hover {
     border-bottom: 0.2rem solid #f1683a;
 }
 
+/*nosotros*/
+
+.imagenFondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Asegura que la imagen de fondo esté detrás de todo */
+}
+.contenedor-sobre-nosotros {
+    margin: 10rem;
+    position: relative; /* Establece el contexto de apilamiento */
+    z-index: 1; /* Asegura que el section esté encima de la imagen de fondo */
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 1rem 1rem 1rem 1rem;
+    border: 0.5rem solid #f1683a;
+}
 
 @media (max-width: 1326px) {
     .imagenChica {
@@ -787,6 +805,15 @@ input[type="submit"]:hover {
     }
     .carList {
         align-items: end;
+    }
+}
+
+@media (max-width: 1218px) {
+    .contenedor-sobre-nosotros {
+        margin: 2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        
     }
 }
 
@@ -916,6 +943,12 @@ input[type="submit"]:hover {
     }
     .imagenCarousel {
         width: 20rem;
+    }
+    .contenedor-sobre-nosotros h3{
+        font-size: 1rem;
+    }
+    .contenedor-sobre-nosotros p{
+        font-size: 0.8rem;
     }
 
 }
